@@ -3,7 +3,6 @@ import helperClasses.Encryptor;
 import helperClasses.Session;
 import code.DBQueries;
 import model.PasswordAndRoleModel;
-import org.jasypt.util.password.BasicPasswordEncryptor;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
