@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PasswordAndRoleModel {
-    private String PasswordUsr;
-    private String RoleName;
+  private String PasswordUsr;
+  private String RoleName;
 }

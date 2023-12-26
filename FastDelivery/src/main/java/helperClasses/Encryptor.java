@@ -1,4 +1,4 @@
-package helperClasses;
+package HelperClasses;
 
 import org.jasypt.util.password.BasicPasswordEncryptor;
 

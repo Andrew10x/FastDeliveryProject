@@ -1,4 +1,4 @@
-package db;
+package DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ public final class DBSingleton {
     private static DBSingleton instance;
     private final Connection con;
     private DBSingleton() throws ClassNotFoundException, SQLException {
-        String url = "jdbc:postgresql://localhost:5432/FastDeliveryDB";
+        String url = "jdbc:postgresql://localhost:5432/FastDelivery";
         String user = "postgres";
         String password = "1234";
         Class.forName("org.postgresql.Driver");

@@ -1,16 +1,15 @@
-package servlets;
+package Servlets;
 
-import helperClasses.Encryptor;
-import helperClasses.Session;
-import code.DBQueries;
+import HelperClasses.Encryptor;
+import HelperClasses.Session;
+import letscode.CookieAction;
+import letscode.DBQueries;
 import model.UserModel;
+import org.jasypt.util.password.BasicPasswordEncryptor;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Map;

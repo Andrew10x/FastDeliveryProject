@@ -1,8 +1,9 @@
-package servlets;
-import helperClasses.Encryptor;
-import helperClasses.Session;
-import code.DBQueries;
+package Servlets;
+import HelperClasses.Encryptor;
+import HelperClasses.Session;
+import letscode.DBQueries;
 import model.PasswordAndRoleModel;
+import org.jasypt.util.password.BasicPasswordEncryptor;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
