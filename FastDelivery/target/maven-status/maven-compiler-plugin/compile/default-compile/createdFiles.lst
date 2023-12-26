@@ -14,6 +14,7 @@ model\UserModel.class
 letscode\CookieController.class
 servlets\SingUpServ.class
 servlets\ExitServ.class
+servlets\PrintOrder.class
 model\StatusesModel.class
 model\ConstantsModel.class
 servlets\AllOrders.class
@@ -22,6 +23,7 @@ model\PasswordAndRoleModel.class
 letscode\CookieAction.class
 letscode\SessionServlet.class
 servlets\Order.class
+FIlters\LoginFilter.class
 servlets\CalcPriceServ.class
 servlets\HeaderServ.class
 letscode\DBQueries.class
