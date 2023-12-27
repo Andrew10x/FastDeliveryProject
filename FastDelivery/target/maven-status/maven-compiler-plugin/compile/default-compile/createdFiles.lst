@@ -1,8 +1,6 @@
-letscode\MainServlet.class
 model\CityModel.class
 servlets\PayOrder.class
 servlets\SingInServ.class
-letscode\JspServlet$1.class
 model\RoleModel.class
 servlets\MakeOrderServ.class
 DAO\DAOAdd.class
@@ -10,7 +8,6 @@ DAO\ConstantsModelSQL.class
 model\UserModel.class
 DAO\DAOGetByTwoFields.class
 DAO\DirectionDAO.class
-letscode\CookieController.class
 DAO\RoleModelSQL.class
 servlets\PrintOrder.class
 model\StatusesModel.class
@@ -18,7 +15,6 @@ DAO\OrderModelSQL.class
 servlets\AllOrders.class
 model\DirectionModel.class
 model\PasswordAndRoleModel.class
-letscode\SessionServlet.class
 servlets\Order.class
 DAO\RoleDAO.class
 DAO\DAOGetOrdersListWithFilter.class
@@ -26,7 +22,6 @@ servlets\HeaderServ.class
 DAO\OrderJoinedModelSQL.class
 DAO\UserModelSQL.class
 DAO\DAOGetList.class
-letscode\DBQueries.class
 model\CargotypeModel.class
 servlets\MyOrders.class
 helperClasses\Encryptor.class
@@ -34,8 +29,6 @@ DAO\StatusDAO.class
 db\DBSingleton.class
 servlets\ChangeStatus.class
 DAO\DAOGetBYField.class
-letscode\User.class
-letscode\JspServlet.class
 model\RecipientModel.class
 DAO\OrderJoinedDAO.class
 letscode\Test.class
@@ -47,7 +40,6 @@ DAO\OrderDAO.class
 servlets\ExitServ.class
 model\ConstantsModel.class
 DAO\ConstantsDAO.class
-letscode\CookieAction.class
 DAO\RecipientDAO.class
 DAO\DirectionModelSQL.class
 FIlters\LoginFilter.class
