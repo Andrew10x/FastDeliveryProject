@@ -40,7 +40,7 @@ public class LoginFilter implements Filter {
         System.out.println("#INFO " + new Date() + " - ServletPath :" + servletPath //
                 + ", URL =" + req.getRequestURL());
 
-        HttpSession session = req.getSession(false);
+        //HttpSession session = req.getSession(false);
 
         if(servletPath.contains("/resources") || Objects.equals(servletPath, "/auth/singin.jsp") ||
                 Objects.equals(servletPath, "/auth/singup.jsp") ||
@@ -51,7 +51,27 @@ public class LoginFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }
-        Cookie[] cookies = req.getCookies();
+        HttpSession session = req.getSession();
+        String userRole = (String) session.getAttribute("userRole");
+        if(userRole == null) {
+            HttpServletResponse resp = (HttpServletResponse) response;
+            resp.sendRedirect(req.getContextPath() + "/auth/singin.jsp");
+            return;
+        }
+        if(servletPath.contains("/AllOrders")) {
+            if(userRole.equals("Manager")) {
+                chain.doFilter(request, response);
+            }
+            else {
+                HttpServletResponse resp = (HttpServletResponse) response;
+                resp.sendRedirect(req.getContextPath() + "/");
+            }
+        }
+        else {
+            chain.doFilter(request, response);
+        }
+
+       /* Cookie[] cookies = req.getCookies();
         String UserRole = "";
         if (cookies != null) {
             for (Cookie c : cookies) {
@@ -67,7 +87,7 @@ public class LoginFilter implements Filter {
         else {
             HttpServletResponse resp = (HttpServletResponse) response;
             resp.sendRedirect(req.getContextPath() + "/auth/singin.jsp");
-        }
+        }*/
 
     }
 

@@ -8,7 +8,7 @@ import model.RecipientModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +22,7 @@ import java.util.Objects;
 @WebServlet("/MakeOrder")
 public class MakeOrderServ extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CityDAO cd = null;
         try {
             cd = new CityDAO(DBSingleton.getInstance().getConnection());
@@ -32,21 +32,16 @@ public class MakeOrderServ extends HttpServlet {
         List<CityModel> cities = cd.getAll();
         req.setAttribute("cities", cities);
 
-        getServletContext().getRequestDispatcher("/makeOrder.jsp").forward(req, resp);
+        req.getRequestDispatcher("/makeOrder.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Map<String, String[]> mp = req.getParameterMap();
         CalcPriceServ cps = new CalcPriceServ();
         List<Float> res = cps.calcPriceAndGetValues(req, resp);
-        Cookie[] cookies = req.getCookies();
-        String UserEmail = "";
-        for(Cookie c: cookies) {
-            if(Objects.equals(c.getName(), "UserEmail"))
-                UserEmail = c.getValue();
-        }
-        if(Objects.equals(UserEmail, "")) {
+        String userEmail = (String) req.getSession().getAttribute("userName");
+        if(userEmail == null) {
             resp.getWriter().write("Please singup or singin");
             return;
         }
@@ -67,7 +62,7 @@ public class MakeOrderServ extends HttpServlet {
             throw new RuntimeException(e);
         }
         OrderModel om = new OrderModel();
-        om.setUserId(ud.get(UserEmail).getUserId());
+        om.setUserId(ud.get(userEmail).getUserId());
         om.setDirectionId(dd.getByTwoFields( Integer.parseInt(mp.get("cityFrom")[0]),
                 Integer.parseInt(mp.get("cityTo")[0])).getDirectionId());
         om.setStatusId(sd.get("Створено").getStatusid());
@@ -88,7 +83,7 @@ public class MakeOrderServ extends HttpServlet {
 
         int resId = od.add(om);
         req.setAttribute("id", resId);
-        getServletContext().getRequestDispatcher("/makeOrder/makeOrderSuccess.jsp").forward(req, resp);
+        req.getRequestDispatcher("/makeOrder/makeOrderSuccess.jsp").forward(req, resp);
 
         try {
             DBSingleton.getInstance().getConnection().close();

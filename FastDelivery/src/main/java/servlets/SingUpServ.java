@@ -18,7 +18,7 @@ import java.util.Map;
 @WebServlet("/SingUpServ")
 public class SingUpServ extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/auth/singupError.jsp").forward(req, resp);
     }
 
@@ -64,12 +64,10 @@ public class SingUpServ extends HttpServlet {
             resp.getWriter().write("Add user error");
         }
         else {
-            Session session = new Session(req);
-            session.createSession();
-            String name = "UserRole";
-            String role = "RegisteredUser";
-            Cookie c = new Cookie(name, role);
-            resp.addCookie(c);
+            HttpSession session = req.getSession();
+            session.setAttribute("userRole", userModel.getRoleName());
+            session.setAttribute("userName", userModel.getEmail());
+
             resp.sendRedirect(req.getContextPath() + "/");
         }
 

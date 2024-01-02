@@ -9,11 +9,11 @@ import java.io.IOException;
 @WebServlet("/ExitServ")
 public class ExitServ extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Cookie c1 = new Cookie("UserRole", "");
-        resp.addCookie(c1);
-        Session session = new Session(req);
-        session.closeSession();
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        session.removeAttribute("userName");
+        session.removeAttribute("userRole");
+
         resp.sendRedirect(req.getContextPath() + "/");
     }
 }

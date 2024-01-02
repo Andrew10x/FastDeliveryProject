@@ -6,7 +6,7 @@ import model.OrderJoinedModel;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +25,9 @@ public class MyOrders extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        String email = getEmail(req);
+        String email = (String) req.getSession().getAttribute("userName");
+        if(email == null)
+            email = "";
         List<OrderJoinedModel> data;
         data = ojd.getAllWithFilter(0, email, "", "", "", "");
 
@@ -40,14 +42,10 @@ public class MyOrders extends HttpServlet {
     }
 
     public String getEmail(HttpServletRequest req) {
-        Cookie[] cookies = req.getCookies();
-        if (cookies != null) {
-            for (Cookie c : cookies) {
-                if (Objects.equals(c.getName(), "UserEmail")) {
-                    return c.getValue();
-                }
-            }
-        }
-        return "";
+        String email = (String) req.getSession().getAttribute("userName");
+        if(email == null)
+            return "";
+        else
+            return email;
     }
 }

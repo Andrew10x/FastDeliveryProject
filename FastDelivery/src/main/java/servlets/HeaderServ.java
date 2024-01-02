@@ -2,7 +2,7 @@ package Servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,16 +15,11 @@ import java.util.Objects;
 public class HeaderServ extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Cookie[] cookies = req.getCookies();
-        String UserRole = "";
-        if (cookies != null) {
-            for (Cookie c : cookies) {
-                if(Objects.equals(c.getName(), "UserRole"))
-                    UserRole = c.getValue();
-            }
 
-        }
-        req.setAttribute("UserRole", UserRole);
+        String userRole  = (String) req.getSession().getAttribute("userRole");
+        if(userRole == null)
+            userRole = "";
+        req.setAttribute("UserRole", userRole);
         getServletContext().getRequestDispatcher("/header.jsp").forward(req, resp);
     }
 }
