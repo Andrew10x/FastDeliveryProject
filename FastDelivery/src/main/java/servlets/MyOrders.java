@@ -1,7 +1,5 @@
 package Servlets;
-
-import DAO.OrderJoinedDAO;
-import DB.DBSingleton;
+import Services.AllOrdersService;
 import model.OrderJoinedModel;
 
 import javax.servlet.ServletException;
@@ -11,41 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.List;
-import java.util.Objects;
+
 
 @WebServlet("/MyOrders")
 public class MyOrders extends HttpServlet {
+    AllOrdersService ordersService;
+
+    @Override
+    public void init() throws ServletException {
+        ordersService = new AllOrdersService();
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        OrderJoinedDAO ojd;
-        try {
-            ojd = new OrderJoinedDAO(DBSingleton.getInstance().getConnection());
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
         String email = (String) req.getSession().getAttribute("userName");
-        if(email == null)
-            email = "";
-        List<OrderJoinedModel> data;
-        data = ojd.getAllWithFilter(0, email, "", "", "", "");
+        List<OrderJoinedModel> data = ordersService.getUserOrders(email);
 
         req.setAttribute("data", data);
         getServletContext().getRequestDispatcher("/myOrders.jsp").forward(req, resp);
-
-        try {
-            DBSingleton.getInstance().getConnection().close();
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public String getEmail(HttpServletRequest req) {
-        String email = (String) req.getSession().getAttribute("userName");
-        if(email == null)
-            return "";
-        else
-            return email;
     }
 }

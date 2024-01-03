@@ -1,3 +1,4 @@
+Services\CityService.class
 model\CityModel.class
 servlets\PayOrder.class
 servlets\SingInServ.class
@@ -12,6 +13,9 @@ DAO\RoleModelSQL.class
 servlets\PrintOrder.class
 model\StatusesModel.class
 DAO\OrderModelSQL.class
+Services\AuthService.class
+Services\AllOrdersService.class
+Services\PayOrderService.class
 servlets\AllOrders.class
 model\DirectionModel.class
 model\PasswordAndRoleModel.class
@@ -31,13 +35,13 @@ servlets\ChangeStatus.class
 DAO\DAOGetBYField.class
 model\RecipientModel.class
 DAO\OrderJoinedDAO.class
-letscode\Test.class
-helperClasses\Session.class
+Services\MakeOrderService.class
 model\OrderModel.class
 DAO\UserDAO.class
 servlets\SingUpServ.class
 DAO\OrderDAO.class
 servlets\ExitServ.class
+model\AllOrdersModel.class
 model\ConstantsModel.class
 DAO\ConstantsDAO.class
 DAO\RecipientDAO.class
@@ -46,8 +50,10 @@ FIlters\LoginFilter.class
 DAO\DAOUpdate.class
 servlets\CalcPriceServ.class
 DAO\StatusModelSQL.class
+Services\CalcPriceService.class
 DAO\CityModelSQL.class
 DAO\RecipientModelSQL.class
 DAO\CityDAO.class
+Services\OrderService.class
 model\OrderJoinedModel.class
 DAO\DAOGetById.class

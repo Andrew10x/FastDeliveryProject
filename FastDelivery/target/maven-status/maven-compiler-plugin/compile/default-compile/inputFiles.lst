@@ -3,8 +3,11 @@ D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\DAO\RoleDAO.jav
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\DAO\DirectionDAO.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\DirectionModel.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\DAO\DAOGetBYField.java
+D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Services\PayOrderService.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\RecipientModel.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Servlets\ExitServ.java
+D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Services\CalcPriceService.java
+D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Services\OrderService.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\OrderJoinedModel.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Servlets\PrintOrder.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Servlets\MakeOrderServ.java
@@ -23,8 +26,11 @@ D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\StatusesM
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\CityModel.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\ConstantsModel.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Servlets\SingInServ.java
-D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\letscode\Test.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\DAO\StatusDAO.java
+D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Services\MakeOrderService.java
+D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\AllOrdersModel.java
+D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Services\AuthService.java
+D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Services\AllOrdersService.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Servlets\HeaderServ.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\DAO\RecipientDAO.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\RoleModel.java
@@ -32,7 +38,7 @@ D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Servlets\MyOrde
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\HelperClasses\Encryptor.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\CargotypeModel.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\model\UserModel.java
+D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Services\CityService.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\DAO\ConstantsDAO.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\DAO\CityDAO.java
-D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\HelperClasses\Session.java
 D:\svtan\JavaLabs\FastDeliveryProject\FastDelivery\src\main\java\Servlets\PayOrder.java
